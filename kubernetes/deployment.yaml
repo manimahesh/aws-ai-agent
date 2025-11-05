@@ -1,0 +1,28 @@
+# kubernetes/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: travel-agent-deployment
+  labels:
+    app: travel-agent
+spec:
+  replicas: 2 # Run two instances of your application for redundancy
+  selector:
+    matchLabels:
+      app: travel-agent
+  template:
+    metadata:
+      labels:
+        app: travel-agent
+    spec:
+      containers:
+      - name: travel-agent-container
+        # Placeholder for the GitHub Actions script to substitute the full ECR image URI
+        image: <ECR_IMAGE_PLACEHOLDER> 
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000 # Matches the port exposed by your Express app (server.js)
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
