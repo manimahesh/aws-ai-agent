@@ -11,7 +11,7 @@ env:
   AWS_REGION: us-west-2
   ECR_REPOSITORY: ai-travel-agent-repo
   ECR_REGISTRY: images
-  EKS_CLUSTER_NAME: attractive-mushroom-1761238386
+  EKS_CLUSTER_NAME: mmani-ai-cluster
   IMAGE_TAG: ${{ github.sha }} # Use the commit SHA as the image tag
 
 jobs:
