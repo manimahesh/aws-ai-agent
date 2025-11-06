@@ -21,6 +21,14 @@ spec:
         imagePullPolicy: Always
         ports:
         - containerPort: 3000 # Matches the port exposed by your Express app (server.js)
+
+        env:        
+        # Inject the GEMINI_API_KEY from the Kubernetes Secret
+        - name: GEMINI_API_KEY 
+          valueFrom:
+            secretKeyRef:
+              name: travel-agent-secrets # Name of the Secret object
+              key: GEMINI_API_KEY        # Key name inside the Secret data
         resources:
           requests: # Guaranteed minimum resources
             memory: "64Mi"
