@@ -8,9 +8,10 @@ on:
 
 env:
   # AWS and ECR settings - **UPDATE THESE VALUES**
-  AWS_REGION: us-east-1
+  AWS_REGION: us-west-2
   ECR_REPOSITORY: ai-travel-agent-repo
-  EKS_CLUSTER_NAME: my-travel-eks-cluster
+  ECR_REGISTRY: images
+  EKS_CLUSTER_NAME: attractive-mushroom-1761238386
   IMAGE_TAG: ${{ github.sha }} # Use the commit SHA as the image tag
 
 jobs:
@@ -27,8 +28,9 @@ jobs:
     - name: ⚙️ Configure AWS Credentials
       uses: aws-actions/configure-aws-credentials@v4
       with:
-        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        role-to-assume: ${{ secrets.AWS_IAM_ROLE_ARN }}
+        #aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        #aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: ${{ env.AWS_REGION }}
 
     - name: 🐳 Login to Amazon ECR
