@@ -5,6 +5,7 @@ on:
   push:
     branches:
       - main # Trigger on push to the main branch
+  workflow_dispatch:
 
 env:
   # AWS and ECR settings - **UPDATE THESE VALUES**
