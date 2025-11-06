@@ -65,7 +65,7 @@ jobs:
         
         # 2. Apply the Service manifest (only creates it if it doesn't exist)
         echo "Applying Kubernetes Service..."
-        kubectl apply -f kubernetes/service.yaml
+        kubectl apply -f kubernetes/services.yaml
         
         # 3. Apply the updated Deployment manifest (triggers a rolling update)
         echo "Applying Kubernetes Deployment with image: $IMAGE_URI"
