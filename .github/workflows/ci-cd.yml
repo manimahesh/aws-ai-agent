@@ -23,7 +23,7 @@ jobs:
       id-token: write # Required for OIDC/IRSA authentication
 
     steps:
-    - name: ⬇️ Checkout code
+    - name: ⬇️  Checkout code
       uses: actions/checkout@v4
 
     - name: ⚙️ Configure AWS Credentials
